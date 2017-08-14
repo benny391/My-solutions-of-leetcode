@@ -4,7 +4,7 @@ using std::vector;
 class Solution {
 public:
 
-    void generateComb(int i, const vector<int>& candidates, int target, bool f[][10000], vector<int> comb, vector<vector<int>> &ret)
+    void generateComb(int i, const vector<int>& candidates, int target, vector<vector<bool>> &f, vector<int> comb, vector<vector<int>> &ret)
     {
         if (target == 0) 
         {
@@ -26,9 +26,8 @@ public:
 
     vector<vector<int>> combinationSum(vector<int>& candidates, int target) {
 
-        bool f[candidates.size()][10000];
+        vector< vector<bool> > f(candidates.size(),vector<bool>(target + 10));
         bool g[target + 10];
-        memset(f, false, sizeof(f));
         memset(g, false, sizeof(g));
         g[0] = true;
         for (int i = 0; i < candidates.size(); ++i)
