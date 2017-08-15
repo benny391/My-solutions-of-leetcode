@@ -29,7 +29,7 @@ public:
                 int tmp = *it;
                 *it = *(iter + 1);
                 *(iter + 1) = tmp;
-                sort(nums.rbegin(), iter + 1, greater<int>());
+                reverse(nums.rbegin(), iter + 1);
                 return;
             }
         }
